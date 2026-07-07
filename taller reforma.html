@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de Carrocería y Pintura Reforma</title>
+    <style>
+        /* Base General */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #14191f; /* Fondo oscuro premium estilo taller */
+            color: #ffffff; 
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Menú Superior (Header) con fondo negro para el logo */
+        header {
+            background-color: #000000; 
+            padding: 15px 0;
+            border-bottom: 3px solid #e74c3c; /* Línea roja que combina con tu logo */
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .nav-links {
+            text-align: right;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .nav-links a:hover {
+            color: #e74c3c; /* Brillo rojo al pasar el mouse */
+        }
+
+        /* Sección de Presentación (Hero) */
+        .hero {
+            background-color: #1e252b; 
+            color: #ffffff;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #bdc3c7;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+        
+        /* Bloques Principales Oscuros */
+        .section {
+            padding: 50px 30px;
+            background-color: #1e252b; 
+            margin-bottom: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            color: #ffffff;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 25px;
+            border-left: 5px solid #e74c3c; /* Detalle en rojo */
+            padding-left: 15px;
+        }
+        .section > p {
+            color: #e2e8f0 !important; /* Gris claro para que el texto explicativo se lea perfecto */
+        }
+        
+        /* Estructura de Quiénes Somos */
+        .about-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .about-cell-text {
+            width: 55%;
+            padding-right: 30px;
+            vertical-align: top;
+        }
+        .about-cell-img {
+            width: 45%;
+            vertical-align: top;
+        }
+        .img-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #2c353d;
+            border: 2px dashed #4f5d6c;
+            border-radius: 6px;
+            text-align: center;
+            line-height: 250px;
+            color: #a0aec0;
+            font-weight: bold;
+        }
+
+        /* Tarjetas de Servicio Blancas para Contraste */
+        .service-box-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 20px 0;
+        }
+        .service-card {
+            width: 50%;
+            background-color: #ffffff; /* Fondo blanco de tarjeta */
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 30px;
+            vertical-align: top;
+            color: #2c3e50; /* Texto oscuro dentro de la tarjeta */
+        }
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .service-card p {
+            color: #555555;
+        }
+
+        /* Estilos de los Formularios (Campos para escribir) */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50; /* Etiquetas oscuras legibles */
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #2c3e50; /* Letras oscuras al escribir */
+        }
+        .form-control:focus {
+            border-color: #e74c3c;
+            outline: none;
+        }
+        
+        /* Botones */
+        .btn {
+            display: inline-block;
+            background-color: #27ae60;
+            color: #ffffff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #219653;
+        }
+        .btn-blue {
+            background-color: #e74c3c; /* Cambiado a rojo deportivo */
+        }
+        .btn-blue:hover {
+            background-color: #c0392b;
+        }
+
+        /* Contacto y Ubicación */
+        .contact-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .contact-info-cell {
+            width: 50%;
+            vertical-align: top;
+            padding-right: 20px;
+        }
+        .map-cell {
+            width: 50%;
+            vertical-align: top;
+        }
+        .info-item {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .info-item strong {
+            color: #ffffff;
+        }
+        
+        footer {
+            background-color: #000000;
+            color: #7f8c8d;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <table class="header-table">
+                <tr>
+                    <td style="vertical-align: middle; width: 120px;">
+                        <a href="#" style="display: block;">
+                            <img src="tallerlogo.png" alt="Taller de Carrocería Reforma" style="height: 90px; width: auto; display: block;">
+                        </a>
+                    </td>
+                    <td class="nav-links" style="vertical-align: middle;">
+                        <a href="#quienes-somos">Quiénes Somos</a>
+                        <a href="#tramites">Cotizaciones y Facturas</a>
+                        <a href="#contacto">Contacto y Ubicación</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>Taller de Carrocería y Pintura Reforma</h1>
+            <p>Especialistas en enderezado, hojalatería y acabados automotrices de alta calidad en Ciudad Juárez.</p>
+            <a href="#tramites" class="btn btn-blue">Iniciar Cotización / Factura</a>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 30px;">
+
+        <div id="quienes-somos" class="section">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <table class="about-table">
+                <tr>
+                    <td class="about-cell-text">
+                        <p style="margin-bottom: 15px; font-size: 16px; text-align: justify;">
+                            En <strong>Taller de Carrocería Reforma</strong> nos avalan años de experiencia ofreciendo la máxima calidad y precisión en la restauración estética de vehículos. Nos apasiona el detalle y asegurar que cada auto recupere su tono exacto y su estado original.
+                        </p>
+                        <p style="font-size: 16px; text-align: justify;">
+                            Trabajamos con honestidad, materiales de nivel profesional y acabados impecables. Desde un pequeño golpe hasta una restauración completa, tu coche está en las mejores manos.
+                        </p>
+                    </td>
+                   <td class="about-cell-img" style="vertical-align: middle;">
+    <img src="imagendeltaller.png" alt="Trabajo en Taller de Carrocería Reforma" style="width: 100%; height: auto; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.5); display: block;">
+</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="tramites" class="section">
+            <h2 class="section-title">Trámites y Solicitudes en Línea</h2>
+            <p style="margin-bottom: 25px;">Selecciona el servicio que requieres. Al presionar el botón, se generará de manera automática un mensaje listo con toda la información necesaria para enviárnoslo directamente por WhatsApp.</p>
+            
+            <table class="service-box-table">
+                <tr>
+                    <td class="service-card" style="border-top: 4px solid #e74c3c;">
+                        <h3>📋 Solicitar Cotización</h3>
+                        <p style="margin-bottom: 20px; font-size: 14px;">Ideal para evaluar reparaciones estéticas, golpes o pintura.</p>
+                        
+                        <form id="quoteForm">
+                            <div class="form-group">
+                                <label>Nombre Completo:</label>
+                                <input type="text" id="q_name" class="form-control" placeholder="Ej. Juan Pérez" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Modelo y Año del Auto:</label>
+                                <input type="text" id="q_car" class="form-control" placeholder="Ej. Scion FR-S 2014" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Detalles del Golpe / Daño:</label>
+                                <textarea id="q_details" class="form-control" rows="3" placeholder="Describe brevemente lo que requiere reparación..." style="resize:none;"></textarea>
+                            </div>
+                            <button type="button" onclick="sendQuote()" class="btn btn-blue" style="width:100%;">Enviar Datos por WhatsApp</button>
+                        </form>
+                    </td>
+
+                    <td class="service-card" style="border-top: 4px solid #27ae60;">
+                        <h3>🧾 Solicitar Factura</h3>
+                        <p style="margin-bottom: 20px; font-size: 14px;">Ingresa tus datos fiscales para generar y enviarte tu factura CFDI.</p>
+                        
+                        <form id="invoiceForm">
+                            <div class="form-group">
+                                <label>Razón Social / Nombre:</label>
+                                <input type="text" id="f_razon" class="form-control" placeholder="Nombre completo o empresa" required>
+                            </div>
+                            <div class="form-group">
+                                <label>RFC:</label>
+                                <input type="text" id="f_rfc" class="form-control" placeholder="Ej. ABC123456XYZ" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Vehículo Reparado (Modelo y Año):</label>
+                                <input type="text" id="f_car" class="form-control" placeholder="Ej. Scion FR-S 2014" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Régimen Fiscal y Uso de CFDI:</label>
+                                <input type="text" id="f_regimen" class="form-control" placeholder="Ej. Régimen Simplificado de Confianza / Gastos en general" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Código Postal Fiscal:</label>
+                                <input type="text" id="f_cp" class="form-control" placeholder="C.P. de tu situación fiscal" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Correo Electrónico (Para envío):</label>
+                                <input type="email" id="f_email" class="form-control" placeholder="ejemplo@correo.com" required>
+                            </div>
+                            <button type="button" onclick="sendInvoice()" class="btn" style="width:100%;">Enviar Datos de Facturación</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="contacto" class="section">
+            <h2 class="section-title">Contacto y Ubicación</h2>
+            <table class="contact-table">
+                <tr>
+                    <td class="contact-info-cell">
+                        <div class="info-item">
+                            <strong>📍 Dirección:</strong><br>
+                            Paraguay #1574 (Esq. con Calle Reforma),<br>
+                            Col. Melchor Ocampo, C.P. 32380,<br>
+                            Ciudad Juárez, Chihuahua, México.
+                        </div>
+                        <div class="info-item" style="margin-top: 20px;">
+                            <strong>🕒 Horarios de Atención:</strong><br>
+                            Lunes a Viernes: 9:00 AM - 6:00 PM<br>
+                            Sábados: 9:00 AM - 2:00 PM
+                        </div>
+                        <div class="info-item" style="margin-top: 20px;">
+                            <strong>📲 WhatsApp / Teléfono:</strong><br>
+                            Mándanos un mensaje directo para dudas inmediatas.
+                        </div>
+                    </td>
+                    <td class="map-cell">
+                        <iframe src="https://maps.google.com/maps?q=Paraguay%201574,%20Melchor%20Ocampo,%20Ciudad%20Juarez&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="320" style="border:0; border-radius:6px;" allowfullscreen="" loading="lazy"></iframe>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Taller de Carrocería Reforma. Todos los derechos reservados.</p>
+            <p style="font-size: 11px; margin-top: 5px; color: #566573;">Ciudad Juárez, Chihuahua, México.</p>
+        </div>
+    </footer>
+
+    <script>
+        const WHATSAPP_NUMBER = "526561084470"; 
+
+        function sendQuote() {
+            const name = document.getElementById('q_name').value;
+            const car = document.getElementById('q_car').value;
+            const details = document.getElementById('q_details').value;
+
+            if(!name || !car) {
+                alert("Por favor llena los campos obligatorios (Nombre y Auto).");
+                return;
+            }
+
+            const message = `¡Hola! Me gustaría solicitar una cotización.%0A%0A` +
+                            `*Nombre:* ${encodeURIComponent(name)}%0A` +
+                            `*Vehículo:* ${encodeURIComponent(car)}%0A` +
+                            `*Detalles:* ${encodeURIComponent(details || 'No especificado')}`;
+            
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+        }
+
+        function sendInvoice() {
+            const razon = document.getElementById('f_razon').value;
+            const rfc = document.getElementById('f_rfc').value;
+            const car = document.getElementById('f_car').value;
+            const regimen = document.getElementById('f_regimen').value;
+            const cp = document.getElementById('f_cp').value;
+            const email = document.getElementById('f_email').value;
+
+            if(!razon || !rfc || !car || !cp || !email) {
+                alert("Por favor llena todos los datos fiscales y del vehículo obligatorios.");
+                return;
+            }
+
+            const message = `¡Hola! Solicito la factura de mi servicio. Aquí están mis datos fiscales:%0A%0A` +
+                            `*Razón Social:* ${encodeURIComponent(razon)}%0A` +
+                            `*RFC:* ${encodeURIComponent(rfc)}%0A` +
+                            `*Vehículo Reparado:* ${encodeURIComponent(car)}%0A` +
+                            `*Régimen y Uso CFDI:* ${encodeURIComponent(regimen || 'No especificado')}%0A` +
+                            `*Código Postal:* ${encodeURIComponent(cp)}%0A` +
+                            `*Correo de Envío:* ${encodeURIComponent(email)}`;
+            
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
